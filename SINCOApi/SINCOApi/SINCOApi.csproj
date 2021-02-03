@@ -13,5 +13,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Dominio.csproj" />
+    <ProjectReference Include="..\Infraestrucura\Infraestructura.csproj" />
+  </ItemGroup>
+
 
 </Project>

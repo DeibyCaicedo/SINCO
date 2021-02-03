@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace SINCOApi.Models
+namespace Infraestructura.Models
 {
     public class Profesor
     {
@@ -21,6 +22,9 @@ namespace SINCOApi.Models
         public string Dirección { get; set; }
         [MaxLength(15)]
         public string Telefono { get; set; }
+        public int Asignaturaid { get; set; }
+        [JsonIgnore]
+        public Asignatura Asignatura { get; set; }
 
 
     }

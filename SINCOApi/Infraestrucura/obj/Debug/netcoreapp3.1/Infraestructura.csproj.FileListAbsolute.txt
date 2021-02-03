@@ -1,0 +1,11 @@
+C:\SINCO\SINCOApi\Infraestrucura\bin\Debug\netcoreapp3.1\Infraestructura.deps.json
+C:\SINCO\SINCOApi\Infraestrucura\bin\Debug\netcoreapp3.1\Infraestructura.dll
+C:\SINCO\SINCOApi\Infraestrucura\bin\Debug\netcoreapp3.1\Infraestructura.pdb
+C:\SINCO\SINCOApi\Infraestrucura\obj\Debug\netcoreapp3.1\Infraestructura.AssemblyInfoInputs.cache
+C:\SINCO\SINCOApi\Infraestrucura\obj\Debug\netcoreapp3.1\Infraestructura.AssemblyInfo.cs
+C:\SINCO\SINCOApi\Infraestrucura\obj\Debug\netcoreapp3.1\Infraestructura.csproj.CoreCompileInputs.cache
+C:\SINCO\SINCOApi\Infraestrucura\obj\Debug\netcoreapp3.1\Infraestructura.dll
+C:\SINCO\SINCOApi\Infraestrucura\obj\Debug\netcoreapp3.1\Infraestructura.pdb
+C:\SINCO\SINCOApi\Infraestrucura\bin\Debug\netcoreapp3.1\Infraestructura.runtimeconfig.json
+C:\SINCO\SINCOApi\Infraestrucura\bin\Debug\netcoreapp3.1\Infraestructura.runtimeconfig.dev.json
+C:\SINCO\SINCOApi\Infraestrucura\obj\Debug\netcoreapp3.1\Infraestructura.genruntimeconfig.cache

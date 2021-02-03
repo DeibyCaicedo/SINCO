@@ -1,0 +1,9 @@
+C:\SINCO\SINCOApi\Domain\bin\Debug\netcoreapp3.1\Dominio.deps.json
+C:\SINCO\SINCOApi\Domain\bin\Debug\netcoreapp3.1\Dominio.dll
+C:\SINCO\SINCOApi\Domain\bin\Debug\netcoreapp3.1\Dominio.pdb
+C:\SINCO\SINCOApi\Domain\obj\Debug\netcoreapp3.1\Dominio.AssemblyInfoInputs.cache
+C:\SINCO\SINCOApi\Domain\obj\Debug\netcoreapp3.1\Dominio.AssemblyInfo.cs
+C:\SINCO\SINCOApi\Domain\obj\Debug\netcoreapp3.1\Dominio.csproj.CoreCompileInputs.cache
+C:\SINCO\SINCOApi\Domain\obj\Debug\netcoreapp3.1\Dominio.dll
+C:\SINCO\SINCOApi\Domain\obj\Debug\netcoreapp3.1\Dominio.pdb
+C:\SINCO\SINCOApi\Domain\obj\Debug\netcoreapp3.1\Dominio.csprojAssemblyReference.cache

@@ -1,10 +1,9 @@
-﻿using SINCOApi.Models;
+﻿using Infraestructura.Interfaces;
+using Infraestructura.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,10 +13,10 @@ namespace SINCOApi.Controllers
     [ApiController]
     public class ProfesorController : ControllerBase
     {
-        private readonly DataContext context;
-        public ProfesorController(DataContext context)
+        private readonly IProfesorRepositorio ProfesorRepositorio;
+        public ProfesorController(IProfesorRepositorio ProfesorRepositorio)
         {
-            this.context = context;
+            this.ProfesorRepositorio = ProfesorRepositorio;
         }
         // GET: api/<ProfesorController>
         [HttpGet]
@@ -25,8 +24,9 @@ namespace SINCOApi.Controllers
         {
             try
             {
-                return Ok(context.profesores.ToList());
-            }catch(Exception ex)
+                return Ok(ProfesorRepositorio.ConsultarTodosProfesores());
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -38,9 +38,9 @@ namespace SINCOApi.Controllers
         {
             try
             {
-                var Prof = context.profesores.FirstOrDefault(p => p.Id == id);
-                return Ok(Prof);
-            }
+                var prof = ProfesorRepositorio.ConsultarProfesor(id);
+                return Ok(prof);
+            } 
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
@@ -49,13 +49,12 @@ namespace SINCOApi.Controllers
 
         // POST api/<ProfesorController>
         [HttpPost]
-        public ActionResult Post([FromBody] Profesor Prof)
+        public ActionResult Post([FromBody] Profesor prof)
         {
             try
             {
-                context.profesores.Add(Prof);
-                context.SaveChanges();
-                return CreatedAtRoute("GetProf", new { id = Prof.Id },Prof);
+                ProfesorRepositorio.AgregarProfesor(prof);
+                return CreatedAtRoute("GetProf", new { id = prof.Id }, prof);
             }
             catch (Exception ex)
             {
@@ -65,15 +64,14 @@ namespace SINCOApi.Controllers
 
         // PUT api/<ProfesorController>/5
         [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] Profesor Prof)
+        public ActionResult Put(int id, [FromBody] Profesor prof)
         {
             try
             {
-                if (Prof.Id == id)
+                if (prof.Id == id)
                 {
-                    context.Entry(Prof).State = EntityState.Modified;
-                    context.SaveChanges();
-                    return CreatedAtRoute("GetProf", new { id = Prof.Id }, Prof);
+                    ProfesorRepositorio.ActualizarProfesor(prof);
+                    return CreatedAtRoute("GetProf", new { id = prof.Id }, prof);
                 }
                 else
                 {
@@ -92,17 +90,8 @@ namespace SINCOApi.Controllers
         {
             try
             {
-                var Prof = context.profesores.FirstOrDefault(p => p.Id == id);
-                if (Prof != null)
-                {
-                    context.profesores.Remove(Prof);
-                    context.SaveChanges();
-                    return Ok(id);
-                }
-                else
-                {
-                    return BadRequest();
-                }
+                ProfesorRepositorio.EliminarProfesor(id);
+                return Ok("Se elimino el profesor correctamente");
             }
             catch (Exception ex)
             {

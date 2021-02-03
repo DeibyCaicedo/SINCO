@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "EdrtC7MLxvMmGtal2ubUSkae4gqfdtjNs5zC1DBMSMEeBDpZNHOupTbvHWWTOECMksssM/6KvyE2cYeDGX0yVQ==",
+  "success": true,
+  "projectFilePath": "C:\\SINCO\\SINCOApi\\Domain\\Dominio.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Deiby Caicedo\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
