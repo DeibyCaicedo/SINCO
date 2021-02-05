@@ -71,11 +71,16 @@ function App() {
     {title: "telefono", field: "telefono"},
     {title: "asignaturaid", field: "asignaturaid", type:"numeric"}
 
-    
+  ]
+  var columnsa = [
+    {title: "id", field: "id", hidden: true},
+    {title: "nombre", field: "nombre"}
 
   ]
   const [data, setData] = useState([]); //table data
   const [datap, setDatap] = useState([]); //table data
+  const [dataa, setDataa] = useState([]); //table data
+
 
 
   //for error handling
@@ -95,23 +100,29 @@ function App() {
   const handleRowUpdate = (newData, oldData, resolve, apicons) => {
     //validation
     let errorList = []
-    if(newData.identificación === ""){
-      errorList.push("Por favor ingrese la identificación")
-    }
-    if(newData.nombre === ""){
-      errorList.push("Por favor ingrese nombre")
-    }
-    if(newData.apellido === ""){
-      errorList.push("Por favor ingrese apellido")
-    }
-    if(newData.edad === ""){
-      errorList.push("Por favor ingrese edad")
-    }
-    if(newData.dirección === ""){
-      errorList.push("Por favor ingrese dirección")
-    }
-    if(newData.telefono === ""){
-      errorList.push("Por favor ingrese telefono")
+    if(apicons == "/asignatura"){    
+      if(newData.nombre === ""){
+        errorList.push("Por favor ingrese nombre")
+      }
+    }else{
+      if(newData.identificación === ""){
+        errorList.push("Por favor ingrese la identificación")
+      }
+      if(newData.nombre === ""){
+        errorList.push("Por favor ingrese nombre")
+      }
+      if(newData.apellido === ""){
+        errorList.push("Por favor ingrese apellido")
+      }
+      if(newData.edad === ""){
+        errorList.push("Por favor ingrese edad")
+      }
+      if(newData.dirección === ""){
+        errorList.push("Por favor ingrese dirección")
+      }
+      if(newData.telefono === ""){
+        errorList.push("Por favor ingrese telefono")
+      }
     }
 
     if(errorList.length < 1){
@@ -143,26 +154,31 @@ function App() {
   const handleRowAdd = (newData, resolve,apicons) => {
     //validation
     let errorList = []
-       
-    if(newData.identificación === undefined){
-      errorList.push("Por favor ingrese la identificación")
+    if(apicons == "/asignatura"){    
+      if(newData.nombre === undefined){
+        errorList.push("Por favor ingrese nombre")
+      }
+    }else{
+      if(newData.identificación === undefined){
+        errorList.push("Por favor ingrese la identificación")
+      }
+      if(newData.nombre === undefined){
+        errorList.push("Por favor ingrese nombre")
+      }
+      if(newData.apellido === undefined){
+        errorList.push("Por favor ingrese apellido")
+      }
+      if(newData.edad === undefined){
+        errorList.push("Por favor ingrese edad")
+      }
+      if(newData.dirección === undefined){
+        errorList.push("Por favor ingrese dirección")
+      }
+      if(newData.telefono === undefined){
+        errorList.push("Por favor ingrese telefono")
+      }
     }
-    if(newData.nombre === undefined){
-      errorList.push("Por favor ingrese nombre")
-    }
-    if(newData.apellido === undefined){
-      errorList.push("Por favor ingrese apellido")
-    }
-    if(newData.edad === undefined){
-      errorList.push("Por favor ingrese edad")
-    }
-    if(newData.dirección === undefined){
-      errorList.push("Por favor ingrese dirección")
-    }
-    if(newData.telefono === undefined){
-      errorList.push("Por favor ingrese telefono")
-    }
-    
+
     if(errorList.length < 1){ //no error
       api.post(apicons, newData)
       .then(res => {
@@ -214,7 +230,15 @@ function App() {
          })
   }, [])
 
-
+  useEffect(() => { 
+    api.get("/asignatura")
+        .then(res => {               
+            setDataa(res.data)
+         })
+         .catch(error=>{
+             console.log("Error")
+         })
+  }, [])
   return (
     <div className="App">
       
@@ -292,8 +316,8 @@ function App() {
         </Grid>
 
         <Grid container spacing={1}>
-          <Grid item xs={2}></Grid>
-          <Grid item xs={8}>
+          <Grid item xs={3}></Grid>
+          <Grid item xs={5}>
           <div>
             {iserror && 
               <Alert severity="error">
@@ -305,8 +329,8 @@ function App() {
           </div>
             <MaterialTable
               title="Información de asignaturas "
-              columns={columnsp}
-              data={datap}
+              columns={columnsa}
+              data={dataa}
               icons={tableIcons}
               editable={{
                 onRowUpdate: (newData, oldData) =>
@@ -325,7 +349,7 @@ function App() {
               }}
             />
           </Grid>
-          <Grid item xs={2}></Grid>
+          <Grid item xs={3}></Grid>
         </Grid>
     </div>
     

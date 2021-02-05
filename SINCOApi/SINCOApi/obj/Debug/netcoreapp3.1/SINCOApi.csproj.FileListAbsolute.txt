@@ -63,3 +63,11 @@ C:\SINCO\SINCOApi\SINCOApi\obj\Debug\netcoreapp3.1\SINCOApi.csproj.CopyComplete
 C:\SINCO\SINCOApi\SINCOApi\obj\Debug\netcoreapp3.1\SINCOApi.dll
 C:\SINCO\SINCOApi\SINCOApi\obj\Debug\netcoreapp3.1\SINCOApi.pdb
 C:\SINCO\SINCOApi\SINCOApi\obj\Debug\netcoreapp3.1\SINCOApi.genruntimeconfig.cache
+C:\SINCO\SINCOApi\SINCOApi\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\SINCO\SINCOApi\SINCOApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\SINCO\SINCOApi\SINCOApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\SINCO\SINCOApi\SINCOApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\SINCO\SINCOApi\SINCOApi\obj\Debug\netcoreapp3.1\SINCOApi.MvcApplicationPartsAssemblyInfo.cs
+C:\SINCO\SINCOApi\SINCOApi\bin\Debug\netcoreapp3.1\NSwag.Annotations.dll
+C:\SINCO\SINCOApi\SINCOApi\bin\Debug\netcoreapp3.1\SINCOApi.xml
+C:\SINCO\SINCOApi\SINCOApi\obj\Debug\netcoreapp3.1\SINCOApi.xml
