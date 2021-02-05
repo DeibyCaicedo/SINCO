@@ -87,12 +87,12 @@ namespace SINCOApi.Controllers
 
         // DELETE api/<AlumnoController>/5
         [HttpDelete("{id}")]
-        public ActionResult Delete(int idAlumno)
+        public ActionResult Delete(int id)
         {
             try
             {
-                alumnoRepositorio.EliminarAlumno(idAlumno);
-                return Ok("Se elimino el alumbo correctamente");
+                alumnoRepositorio.EliminarAlumno(id);
+                return Ok("Se elimino el alumno correctamente");
             }
             catch (Exception ex)
             {
