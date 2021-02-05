@@ -40,7 +40,7 @@ namespace SINCOApi.Controllers
             }
         }
         /// <summary>
-        /// Obtiene la información de un solo alumno
+        /// Obtiene la información de un solo alumno.
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

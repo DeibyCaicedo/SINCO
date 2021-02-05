@@ -2,6 +2,7 @@
 using Infraestructura.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NSwag.Annotations;
 using System;
 using System.Linq;
 
@@ -11,6 +12,7 @@ namespace SINCOApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [SwaggerTag("Api CRUD de Asignaturas")]
     public class ProfesorController : ControllerBase
     {
         private readonly IProfesorRepositorio ProfesorRepositorio;
@@ -18,6 +20,10 @@ namespace SINCOApi.Controllers
         {
             this.ProfesorRepositorio = ProfesorRepositorio;
         }
+        /// <summary>
+        /// Obtiene la información de todos los profesores.
+        /// </summary>
+        /// <returns></returns>
         // GET: api/<ProfesorController>
         [HttpGet]
         public ActionResult Get()
@@ -31,7 +37,11 @@ namespace SINCOApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Obtiene la información de un solo profesor.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET api/<ProfesorController>/5
         [HttpGet("{id}", Name ="GetProf")]
         public ActionResult Get(int id)
@@ -46,7 +56,11 @@ namespace SINCOApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Inserta la información de un nuevo profesor.
+        /// </summary>
+        /// <param name="prof"></param>
+        /// <returns></returns>
         // POST api/<ProfesorController>
         [HttpPost]
         public ActionResult Post([FromBody] Profesor prof)
@@ -61,7 +75,12 @@ namespace SINCOApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Actualiza la información de un profesor.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="prof"></param>
+        /// <returns></returns>
         // PUT api/<ProfesorController>/5
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] Profesor prof)
@@ -83,7 +102,11 @@ namespace SINCOApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Elimina un profesor
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE api/<ProfesorController>/5
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)

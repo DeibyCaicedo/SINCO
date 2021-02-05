@@ -2,6 +2,7 @@
 using Infraestructura.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NSwag.Annotations;
 using System;
 using System.Linq;
 
@@ -9,6 +10,7 @@ namespace SINCOApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [SwaggerTag("Api CRUD de Asignaturas")]
     public class AsignaturaController : ControllerBase
     {
         private readonly IAsignaturaRepositorio asignaturaRepositorio;
@@ -16,6 +18,10 @@ namespace SINCOApi.Controllers
         {
             this.asignaturaRepositorio = asignaturaRepositorio;
         }
+        /// <summary>
+        /// Obtiene la Informacion de todos los asignaturas.
+        /// </summary>
+        /// <returns></returns>
         // GET: api/<AsignaturaController>
         [HttpGet]
         public ActionResult Get()
@@ -29,7 +35,11 @@ namespace SINCOApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Obtiene la información de una sola asignatura.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET api/<AsignaturaController>/5
         [HttpGet("{id}", Name = "GetAsig")]
         public ActionResult Get(int id)
@@ -44,7 +54,11 @@ namespace SINCOApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Inserta información de una nueva asignatura.
+        /// </summary>
+        /// <param name="asig"></param>
+        /// <returns></returns>
         // POST api/<AsignaturaController>
         [HttpPost]
         public ActionResult Post([FromBody] Asignatura asig)
@@ -59,7 +73,12 @@ namespace SINCOApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Inserta informacion de una nueva asignatura.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="asig"></param>
+        /// <returns></returns>
         // PUT api/<AsignaturaController>/5
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] Asignatura asig)
@@ -81,7 +100,11 @@ namespace SINCOApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Elimina una asignatura.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE api/<AsignaturaController>/5
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
