@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SINCOApi</name>
+    </assembly>
+    <members>
+        <member name="M:SINCOApi.Controllers.AlumnoController.Get">
+            <summary>
+            Obtiene la Informacion de todos los alumnos.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SINCOApi.Controllers.AlumnoController.Get(System.Int32)">
+            <summary>
+            Obtiene la información de un solo alumno
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SINCOApi.Controllers.AlumnoController.Post(Infraestructura.Models.Alumno)">
+            <summary>
+            Inserta información de un nuevo alumno 
+            </summary>
+            <param name="alum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SINCOApi.Controllers.AlumnoController.Put(System.Int32,Infraestructura.Models.Alumno)">
+            <summary>
+            Actualiza la infromación de un alumno
+            </summary>
+            <param name="id"></param>
+            <param name="alum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SINCOApi.Controllers.AlumnoController.Delete(System.Int32)">
+            <summary>
+            Elimina la información de un alumno siempre y cuando no tenga materias asignadas
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
