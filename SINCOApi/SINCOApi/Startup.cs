@@ -36,6 +36,8 @@ namespace SINCOApi
             services.AddScoped<IAlumnoRepositorio, AlumnoRepositorio>();
             services.AddScoped<IProfesorRepositorio, ProfesorRepositorio>();
             services.AddScoped<IAsignaturaRepositorio, AsignaturaRepositorio>();
+            services.AddScoped<ICalificacionesRepositorio, CalificacionesRepositorio>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });

@@ -39,16 +39,23 @@ namespace Infraestructura.Repositorios
 
         public void EliminarAlumno(int idAlumno)
         {
-
-            var Alum = context.Alumnos.FirstOrDefault(a => a.Id == idAlumno);
-            if (Alum != null)
+            var cal = context.Calificaciones.FirstOrDefault(c => c.AlumnoId == idAlumno);
+            if (cal == null)
             {
-                context.Alumnos.Remove(Alum);
-                context.SaveChanges();
+                var Alum = context.Alumnos.FirstOrDefault(a => a.Id == idAlumno);
+                if (Alum != null)
+                {
+                    context.Alumnos.Remove(Alum);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("No se pudo eliminar el alumno por que no fue encontrado");
+                }
             }
             else
             {
-                throw new Exception("No se pudo eliminar el alumno por que no fue encontrado");
+                throw new Exception("No se pudo eliminar el alumno por que ya tiene calificaciones");
             }
         }
 

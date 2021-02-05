@@ -3,14 +3,16 @@ using Infraestructura.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infraestructura.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210205224345_DBCreate")]
+    partial class DBCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,17 +84,12 @@ namespace Infraestructura.Migrations
                     b.Property<int>("Anio")
                         .HasColumnType("int");
 
-                    b.Property<int>("AsignaturaId")
-                        .HasColumnType("int");
-
                     b.Property<double>("Calificacion")
                         .HasColumnType("float");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AlumnoId");
-
-                    b.HasIndex("AsignaturaId");
 
                     b.ToTable("Calificaciones");
                 });
@@ -143,12 +140,6 @@ namespace Infraestructura.Migrations
                     b.HasOne("Infraestructura.Models.Alumno", "Alumnos")
                         .WithMany("Calificaciones")
                         .HasForeignKey("AlumnoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Infraestructura.Models.Asignatura", "Asignaturas")
-                        .WithMany("Calificaciones")
-                        .HasForeignKey("AsignaturaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

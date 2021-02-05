@@ -13,5 +13,6 @@ namespace Infraestructura.Models
         [MaxLength(50)]
         public string Nombre { get; set; }
         public Profesor Profesor { get; set; }
+        public List<Calificaciones> Calificaciones { get; set; }
     }
 }

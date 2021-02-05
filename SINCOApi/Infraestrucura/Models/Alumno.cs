@@ -21,6 +21,7 @@ namespace Infraestructura.Models
         public string Dirección { get; set; }
         [MaxLength(15)]
         public string Telefono { get; set; }
+        public List<Calificaciones> Calificaciones { get; set; }
 
     }
 }

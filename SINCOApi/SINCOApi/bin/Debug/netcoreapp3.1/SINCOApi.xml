@@ -12,7 +12,7 @@
         </member>
         <member name="M:SINCOApi.Controllers.AlumnoController.Get(System.Int32)">
             <summary>
-            Obtiene la información de un solo alumno
+            Obtiene la información de un solo alumno.
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -35,6 +35,111 @@
         <member name="M:SINCOApi.Controllers.AlumnoController.Delete(System.Int32)">
             <summary>
             Elimina la información de un alumno siempre y cuando no tenga materias asignadas
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SINCOApi.Controllers.AsignaturaController.Get">
+            <summary>
+            Obtiene la Informacion de todos los asignaturas.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SINCOApi.Controllers.AsignaturaController.Get(System.Int32)">
+            <summary>
+            Obtiene la información de una sola asignatura.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SINCOApi.Controllers.AsignaturaController.Post(Infraestructura.Models.Asignatura)">
+            <summary>
+            Inserta información de una nueva asignatura.
+            </summary>
+            <param name="asig"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SINCOApi.Controllers.AsignaturaController.Put(System.Int32,Infraestructura.Models.Asignatura)">
+            <summary>
+            Inserta informacion de una nueva asignatura.
+            </summary>
+            <param name="id"></param>
+            <param name="asig"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SINCOApi.Controllers.AsignaturaController.Delete(System.Int32)">
+            <summary>
+            Elimina una asignatura.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SINCOApi.Controllers.CalificacionesController.Get">
+            <summary>
+            Obtiene la Informacion de todas las calificaciones.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SINCOApi.Controllers.CalificacionesController.Get(System.Int32)">
+            <summary>
+            Obtiene la información de una sola calificacion.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SINCOApi.Controllers.CalificacionesController.Post(Infraestructura.Models.Calificaciones)">
+            <summary>
+            Inserta información de una nueva calificacion
+            </summary>
+            <param name="cal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SINCOApi.Controllers.CalificacionesController.Put(System.Int32,Infraestructura.Models.Calificaciones)">
+            <summary>
+            Actualiza la infromación de una calificacion
+            </summary>
+            <param name="id"></param>
+            <param name="cal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SINCOApi.Controllers.CalificacionesController.Delete(System.Int32)">
+            <summary>
+            Elimina la información de una calificacion.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SINCOApi.Controllers.ProfesorController.Get">
+            <summary>
+            Obtiene la información de todos los profesores.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SINCOApi.Controllers.ProfesorController.Get(System.Int32)">
+            <summary>
+            Obtiene la información de un solo profesor.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SINCOApi.Controllers.ProfesorController.Post(Infraestructura.Models.Profesor)">
+            <summary>
+            Inserta la información de un nuevo profesor.
+            </summary>
+            <param name="prof"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SINCOApi.Controllers.ProfesorController.Put(System.Int32,Infraestructura.Models.Profesor)">
+            <summary>
+            Actualiza la información de un profesor.
+            </summary>
+            <param name="id"></param>
+            <param name="prof"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SINCOApi.Controllers.ProfesorController.Delete(System.Int32)">
+            <summary>
+            Elimina un profesor
             </summary>
             <param name="id"></param>
             <returns></returns>

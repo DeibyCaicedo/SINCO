@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infraestructura.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210202230446_DbCreate")]
-    partial class DbCreate
+    [Migration("20210205224832_AddRelations")]
+    partial class AddRelations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -71,6 +71,34 @@ namespace Infraestructura.Migrations
                     b.ToTable("Asignaturas");
                 });
 
+            modelBuilder.Entity("Infraestructura.Models.Calificaciones", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AlumnoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Anio")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AsignaturaId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Calificacion")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AlumnoId");
+
+                    b.HasIndex("AsignaturaId");
+
+                    b.ToTable("Calificaciones");
+                });
+
             modelBuilder.Entity("Infraestructura.Models.Profesor", b =>
                 {
                     b.Property<int>("Id")
@@ -110,6 +138,21 @@ namespace Infraestructura.Migrations
                         .IsUnique();
 
                     b.ToTable("profesores");
+                });
+
+            modelBuilder.Entity("Infraestructura.Models.Calificaciones", b =>
+                {
+                    b.HasOne("Infraestructura.Models.Alumno", "Alumnos")
+                        .WithMany("Calificaciones")
+                        .HasForeignKey("AlumnoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Infraestructura.Models.Asignatura", "Asignaturas")
+                        .WithMany("Calificaciones")
+                        .HasForeignKey("AsignaturaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Infraestructura.Models.Profesor", b =>
