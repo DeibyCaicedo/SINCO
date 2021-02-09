@@ -23,8 +23,25 @@ namespace Infraestructura.Repositorios
 
         public void AgregarCal(Calificaciones cal)
         {
-            context.Calificaciones.Add(cal);
-            context.SaveChanges();
+            var asig = context.Asignaturas.FirstOrDefault(b => b.Id == cal.AsignaturaId);
+            if (cal.Calificacion >= 0 & cal.Calificacion <= 5)
+            {
+                var calA = context.Calificaciones.FirstOrDefault(a => a.AlumnoId == cal.AlumnoId & a.Anio == cal.Anio & a.AsignaturaId == cal.AsignaturaId);
+                var Alum = context.Alumnos.FirstOrDefault(e => e.Id == cal.AlumnoId);
+                if (calA == null)
+                {
+                    context.Calificaciones.Add(cal);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("Ya se asigno una calificacion para la asignatura " + asig.Nombre + " en el año " + cal.Anio + " para el alumno "+ Alum.Nombre);
+                }
+            }
+            else
+            {
+                throw new Exception("La calificacion solo puede estar en un rango de 0 a 5");
+            }
         }
 
         public Calificaciones ConsultarCal(int idCal)
@@ -34,7 +51,7 @@ namespace Infraestructura.Repositorios
         }
 
         public List<Calificaciones> ConsultarTodosCal() => context.Calificaciones.ToList();
-       
+
         public void EliminarCal(int idCal)
         {
             var cal = context.Calificaciones.FirstOrDefault(a => a.Id == idCal);
