@@ -77,9 +77,21 @@ function App() {
     {title: "nombre", field: "nombre"}
 
   ]
+  var columnsc = [
+    {title: "id", field: "id", hidden: true},
+    {title: "anio", field: "anio", type: "numeric" },
+    {title: "calificacion", field: "calificacion", type: "numeric" },
+    {title: "alumnoId", field: "alumnoId", type: "numeric" },
+    {title: "asignaturaId", field: "asignaturaId", type: "numeric" },
+
+
+
+  ]
   const [data, setData] = useState([]); //table data
   const [datap, setDatap] = useState([]); //table data
   const [dataa, setDataa] = useState([]); //table data
+  const [datac, setDatac] = useState([]); //table data
+
 
 
 
@@ -239,6 +251,16 @@ function App() {
              console.log("Error")
          })
   }, [])
+
+  useEffect(() => { 
+    api.get("/calificaciones")
+        .then(res => {               
+            setDatac(res.data)
+         })
+         .catch(error=>{
+             console.log("Error")
+         })
+  }, [])
   return (
     <div className="App">
       
@@ -345,6 +367,42 @@ function App() {
                 onRowDelete: (oldData) =>
                   new Promise((resolve) => {
                     handleRowDelete(oldData, resolve,"/asignatura/")
+                  }),
+              }}
+            />
+          </Grid>
+          <Grid item xs={3}></Grid>
+        </Grid>
+        <Grid container spacing={1}>
+          <Grid item xs={3}></Grid>
+          <Grid item xs={6}>
+          <div>
+            {iserror && 
+              <Alert severity="error">
+                  {errorMessages.map((msg, i) => {
+                      return <div key={i}>{msg}</div>
+                  })}
+              </Alert>
+            }       
+          </div>
+            <MaterialTable
+              title="Información de calificaciones "
+              columns={columnsc}
+              data={datac}
+              icons={tableIcons}
+              editable={{
+                onRowUpdate: (newData, oldData) =>
+                  new Promise((resolve) => {
+                      handleRowUpdate(newData, oldData, resolve,"/calificaciones/");
+                      
+                  }),
+                onRowAdd: (newData) =>
+                  new Promise((resolve) => {
+                    handleRowAdd(newData, resolve,"/calificaciones")
+                  }),
+                onRowDelete: (oldData) =>
+                  new Promise((resolve) => {
+                    handleRowDelete(oldData, resolve,"/calificaciones/")
                   }),
               }}
             />
